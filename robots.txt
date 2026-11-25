@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deborahbailly07-dotcom.github.io/bailly/sitemap.xml
