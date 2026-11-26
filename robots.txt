@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deborahbailly07-dotcom.github.io/bailly/sitemap.xml
+Sitemap: https://www.bailly-gestion.fr/sitemap.xml
