@@ -678,3 +678,9 @@ body.entree-ouverte { overflow: hidden; }
 .entree::before, .entree::after { z-index: 0; }
 .entree-boite { z-index: 1; outline: none; }
 @media (max-width: 559px) { .entree { place-items: start center; padding-top: 40px; } .entree-logo { width: 200px; margin-bottom: 18px; } .entree h2 { margin-bottom: 20px; } .entree-passer { margin-top: 12px; } }
+
+/* Titre d'accueil : 2 lignes nettes sur grand écran */
+@media (min-width: 960px) {
+  .heros h1 .h1-ligne { display: block; white-space: nowrap; }
+  .heros h1 { font-size: clamp(3rem, 4.5vw, 4.4rem); }
+}
