@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=mwyzuuul">
+<link rel="stylesheet" href="style.css?v=mwz1v8cl">
 <script>document.documentElement.classList.add('js');</script>
 
 </head>
@@ -158,11 +158,22 @@
     </div>
     <div class="pied-bas">
       <span>© 2026 Bailly – Déborah Bailly EI</span>
-      <a href="mentions-legales.html">Mentions légales</a>
+      <span class="pied-liens"><a href="mentions-legales.html">Mentions légales</a><button class="btn-lien-pied" type="button" id="cookies-gerer" hidden>Gérer les cookies</button></span>
     </div>
   </div>
 </footer>
 
-<script src="main.js?v=mwyzuuul" defer></script>
+<!-- Bandeau cookies (affiché seulement si un outil de suivi est configuré dans build.js) -->
+<div class="cookies" id="cookies" role="dialog" aria-live="polite" aria-labelledby="cookies-titre" hidden>
+  <p id="cookies-titre" class="cookies-titre">Un petit cookie&nbsp;?</p>
+  <p>J'utilise des cookies pour mesurer la fréquentation du site et mesurer l'efficacité de mes publicités. Rien n'est activé sans votre accord.</p>
+  <div class="cookies-boutons">
+    <button class="btn btn-contour" type="button" id="cookies-refuser">Refuser</button>
+    <button class="btn btn-jaune" type="button" id="cookies-accepter">Accepter</button>
+  </div>
+  <a href="mentions-legales.html#cookies">En savoir plus</a>
+</div>
+
+<script src="main.js?v=mwz1v8cl" defer></script>
 </body>
 </html>

@@ -90,4 +90,45 @@
       });
     }
   }
+
+  /* ---------- Cookies + Google Analytics / Ads (Consent Mode v2) ----------
+     Rien n'est chargé tant que le visiteur n'a pas cliqué sur « Accepter ». */
+  var suivi = window.BAILLY_SUIVI;
+  var bandeau = document.getElementById('cookies');
+  if (suivi && bandeau) {
+    var CLE_C = 'bailly-cookies';
+    var SIX_MOIS = 1000 * 60 * 60 * 24 * 182;
+    var gerer = document.getElementById('cookies-gerer');
+    gerer.hidden = false;
+    function lireChoix() {
+      try { var c = JSON.parse(localStorage.getItem(CLE_C)); if (c && Date.now() - c.date < SIX_MOIS) return c.choix; } catch (e) {}
+      return null;
+    }
+    function ecrireChoix(choix) { try { localStorage.setItem(CLE_C, JSON.stringify({ choix: choix, date: Date.now() })); } catch (e) {} }
+    var charge = false;
+    function chargerGoogle() {
+      if (charge) return; charge = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      gtag('consent', 'default', { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied' });
+      gtag('consent', 'update', { ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted' });
+      gtag('js', new Date());
+      if (suivi.ga) gtag('config', suivi.ga, { anonymize_ip: true });
+      if (suivi.ads) gtag('config', suivi.ads);
+      var sc = document.createElement('script'); sc.async = true;
+      sc.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(suivi.ga || suivi.ads);
+      document.head.appendChild(sc);
+    }
+    function decider(choix) {
+      ecrireChoix(choix); bandeau.hidden = true;
+      if (choix === 'accepte') chargerGoogle();
+      else if (charge) location.reload(); /* retrait du consentement : on recharge sans les outils */
+    }
+    document.getElementById('cookies-accepter').addEventListener('click', function () { decider('accepte'); });
+    document.getElementById('cookies-refuser').addEventListener('click', function () { decider('refuse'); });
+    gerer.addEventListener('click', function () { bandeau.hidden = false; document.getElementById('cookies-refuser').focus(); });
+    var choix = lireChoix();
+    if (choix === 'accepte') chargerGoogle();
+    else if (choix === null) bandeau.hidden = false;
+  }
 })();
