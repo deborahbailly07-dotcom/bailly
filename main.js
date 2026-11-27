@@ -48,10 +48,8 @@
   var form = document.getElementById('formulaire-contact');
   if (form) {
     var offre = new URLSearchParams(location.search).get('offre');
-    var message = document.getElementById('message');
-    if (offre && message && !message.value) {
-      message.value = 'Bonjour, je voudrais en savoir plus sur : ' + offre.slice(0, 80) + '.';
-    }
+    var champOffre = document.getElementById('offre');
+    if (offre && champOffre) champOffre.value = offre.slice(0, 80);
     /* Évite le double envoi */
     form.addEventListener('submit', function () {
       var bouton = form.querySelector('button[type="submit"]');
