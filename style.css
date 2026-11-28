@@ -895,3 +895,31 @@ img.rappel-photo { object-fit: cover; object-position: 50% 25%; border-radius: 5
 .compta ul { list-style: none; display: grid; gap: 8px; }
 .compta li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; line-height: 1.4; }
 .compta li::before { content: ""; width: 14px; height: 4px; border-radius: 2px; background: var(--jaune); margin-top: .65em; transform: rotate(-10deg); }
+
+/* ---------- Offres compactes : 3 côte à côte ---------- */
+@media (min-width: 900px) {
+  .offres { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .offre-vedette { grid-column: auto; flex-direction: column; }
+  .offre-vedette .offre-photo { flex: none; min-height: 0; aspect-ratio: 16 / 10; }
+  .offre-vedette .offre-corps { padding: 20px 22px 22px; justify-content: flex-start; }
+  .offre-vedette h3 { font-size: 1.35rem; }
+}
+.offre-photo { aspect-ratio: 16 / 10; }
+.offre-corps { padding: 20px 22px 22px; gap: 10px; }
+.offre h3 { font-size: 1.3rem; }
+.offre-vedette h3 { font-size: 1.35rem; }
+.offre ul { gap: 6px; }
+.offre li { font-size: .97rem; }
+.offre-prix { font-size: 1.45rem; }
+.offre-vedette { box-shadow: 0 0 0 3px var(--jaune), 0 16px 36px rgba(22,34,46,.18); }
+.offre-odoo { margin: -4px 0 0; font-size: .9rem; color: var(--jaune); font-weight: 600; }
+@media (max-width: 559px) { .offre-photo { aspect-ratio: 2 / 1; } }
+
+/* ---------- Odoo pour connaisseurs ---------- */
+.odoo-dev { display: grid; gap: 32px; align-items: center; }
+.odoo-dev h2 { font-size: clamp(1.9rem, 5vw, 2.8rem); }
+.odoo-dev .intro { margin-bottom: 26px; }
+.odoo-liste { list-style: none; display: grid; gap: 10px; }
+.odoo-liste li { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); font-weight: 600; line-height: 1.3; }
+.odoo-liste svg { width: 24px; height: 24px; color: var(--jaune); flex: none; }
+@media (min-width: 960px) { .odoo-dev { grid-template-columns: 1.1fr 1fr; gap: 64px; } }
