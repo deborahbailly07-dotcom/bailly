@@ -859,3 +859,39 @@ img.rappel-photo { object-fit: cover; object-position: 50% 25%; border-radius: 5
 .pied-liens { display: inline-flex; gap: 18px; flex-wrap: wrap; }
 .btn-lien-pied { background: none; border: 0; padding: 0; font: inherit; color: var(--blanc); cursor: pointer; }
 .btn-lien-pied:hover { text-decoration: underline; text-decoration-color: var(--jaune); }
+
+/* ---------- Offre vedette + prix ---------- */
+.offre-prix { margin: 4px 0 2px; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.offre-prix small { font-size: .85rem; font-weight: 600; letter-spacing: 0; color: var(--texte-doux); }
+.offre-categorie { margin: 0; font-size: .8rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--jaune); }
+.offre-vedette { background: var(--bleu-nuit); color: var(--blanc); }
+.offre-vedette .offre-douleur { color: rgba(255,255,255,.75); }
+.offre-vedette .offre-prix small { color: rgba(255,255,255,.7); }
+.offre-vedette .lien-fleche { color: var(--blanc); }
+.offre-vedette .lien-fleche svg { color: var(--jaune); }
+.offre-vedette h3 { font-size: 1.7rem; }
+@media (min-width: 900px) {
+  .offres { grid-template-columns: 1fr 1fr; }
+  .offre-vedette { grid-column: 1 / -1; flex-direction: row; }
+  .offre-vedette .offre-photo { flex: 0 0 48%; aspect-ratio: auto; min-height: 380px; }
+  .offre-vedette .offre-corps { padding: 40px 44px; justify-content: center; }
+  .offre-vedette h3 { font-size: 2.1rem; }
+}
+.offres-mention { text-align: center; margin: 22px 0 0; font-size: .92rem; color: var(--texte-doux); }
+.offre-tete-prix { margin: -8px 0 24px; font-size: 1.05rem; }
+.offre-tete-prix strong { font-size: 1.5rem; letter-spacing: -0.02em; }
+.offre-tete-prix small { display: block; margin-top: 4px; font-size: .85rem; color: var(--texte-doux); }
+
+/* ---------- Comptable vs moi ---------- */
+.compta { display: grid; gap: 16px; max-width: 900px; margin: 0 auto; }
+@media (min-width: 760px) { .compta { grid-template-columns: 1fr 1fr; gap: 20px; } }
+.compta-col { background: var(--creme); border-radius: 22px; padding: 26px; }
+.compta-moi { background: var(--bleu-nuit); color: var(--blanc); }
+.compta-tete { display: flex; align-items: center; gap: 10px; margin: 0; font-weight: 800; font-size: 1.25rem; }
+.compta-tete svg { width: 26px; height: 26px; color: var(--bleu); }
+.compta-moi .compta-tete svg { color: var(--jaune); }
+.compta-quand { margin: 4px 0 14px; font-size: .9rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--texte-doux); }
+.compta-moi .compta-quand { color: var(--jaune); }
+.compta ul { list-style: none; display: grid; gap: 8px; }
+.compta li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; line-height: 1.4; }
+.compta li::before { content: ""; width: 14px; height: 4px; border-radius: 2px; background: var(--jaune); margin-top: .65em; transform: rotate(-10deg); }
